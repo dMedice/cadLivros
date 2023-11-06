@@ -1,6 +1,6 @@
-document.getElementById('cadastroForm').addEventListener('submit', cadastrarJogo);
+document.getElementById('cadastroForm').addEventListener('submit', cadastrarLivro;
 var result = 0;
-function cadastrarJogo(event) {
+function cadastrarLivro(event) {
     event.preventDefault();
 
     const name = document.getElementById('name').value;
@@ -19,7 +19,7 @@ function cadastrarJogo(event) {
             document.getElementById('cadastroForm').reset();            
         })
         .catch(error => {
-            console.error('Erro ao cadastrar jogo:', error);
+            console.error('Erro ao cadastrar livro:', error);
         });
 }
 function pesquisarJogo() {
@@ -28,7 +28,7 @@ function pesquisarJogo() {
     fetch(`http://localhost:8080/jogos/${searchId}`)
         .then(response => {
             if (response.status === 404) {
-                return Promise.reject('Jogo não encontrado');
+                return Promise.reject('Livro não encontrado');
                 result = 0;
             }
             return response.json();
@@ -41,13 +41,13 @@ function pesquisarJogo() {
         .catch(error => {
             console.error('Erro ao pesquisar jogo:', error);
             const resultadoPesquisa = document.getElementById('resultadoPesquisa');
-            resultadoPesquisa.innerHTML = 'Jogo não encontrado.';
+            resultadoPesquisa.innerHTML = 'Livro não encontrado.';
             var timer = window.setTimeout(atualizarPagina, 3000);
 
         });
 }
-function atualizarJogo() {
-    pesquisarJogo();
+function atualizarLivro() {
+    pesquisarLivro();
     if (result == 1) {
         const name = document.getElementById('name').value;
         const plataform = document.getElementById('plataform').value;
@@ -69,12 +69,12 @@ function atualizarJogo() {
                 console.error('Erro ao atualizar jogo:', error);
             });
     } else {
-        alert('ID não encontrado na base de dados. Nenhum jogo foi alterado. Favor pesquisar jogo a ser alterado !!!');
+        alert('ID não encontrado na base de dados. Nenhum livro foi alterado. Favor pesquisar livro a ser alterado !!!');
     }
 }
 
-function excluirJogo() {
-	    pesquisarJogo();
+function excluirLivro() {
+	    pesquisarLivro();
     if (result == 1) {
         const name = document.getElementById('name').value;
         const plataform = document.getElementById('plataform').value;
@@ -89,13 +89,13 @@ function excluirJogo() {
         })
             .then(response => response.json())
             .then(data => {
-                alert('Jogo excluído com sucesso!');
+                alert('Livro excluído com sucesso!');
                 document.getElementById('cadastroForm').reset();                
             })
             .catch(error => {
-                console.error('Erro ao deletar jogo:', error);
+                console.error('Erro ao deletar livro:', error);
             });
     } else {
-        alert('ID não encontrado na base de dados. Favor pesquisar jogo a ser deletado !!!');
+        alert('ID não encontrado na base de dados. Favor pesquisar livro a ser deletado !!!');
     }
 }
