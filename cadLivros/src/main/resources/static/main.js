@@ -6,7 +6,7 @@ function cadastrarLivro(event) {
     const name = document.getElementById('name').value;
     const plataform = document.getElementById('plataform').value;
 
-    fetch('http://localhost:8080/jogos', {
+    fetch('http://localhost:8080/livros', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function atualizarLivro() {
         const plataform = document.getElementById('plataform').value;
         const searchId = document.getElementById('searchId').value;
 
-        fetch(`http://localhost:8080/jogos/${searchId}`, {
+        fetch(`http://localhost:8080/livros/${searchId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -62,11 +62,11 @@ function atualizarLivro() {
         })
             .then(response => response.json())
             .then(data => {
-                alert('Jogo atualizado com sucesso!');
+                alert('Livro atualizado com sucesso!');
                 document.getElementById('cadastroForm').reset();                
             })
             .catch(error => {
-                console.error('Erro ao atualizar jogo:', error);
+                console.error('Erro ao atualizar livro:', error);
             });
     } else {
         alert('ID não encontrado na base de dados. Nenhum livro foi alterado. Favor pesquisar livro a ser alterado !!!');
