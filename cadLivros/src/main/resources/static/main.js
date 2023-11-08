@@ -1,4 +1,4 @@
-document.getElementById('cadastroForm').addEventListener('submit', cadastrarLivro;
+document.getElementById('cadastroForm').addEventListener('submit', cadastrarLivro);
 var result = 0;
 function cadastrarLivro(event) {
     event.preventDefault();
@@ -39,7 +39,7 @@ function pesquisarLivro() {
             document.getElementById('plataform').value = `${data.plataform}`;
         })
         .catch(error => {
-            console.error('Erro ao pesquisar jogo:', error);
+            console.error('Erro ao pesquisar livro', error);
             const resultadoPesquisa = document.getElementById('resultadoPesquisa');
             resultadoPesquisa.innerHTML = 'Livro não encontrado.';
             var timer = window.setTimeout(atualizarPagina, 3000);
