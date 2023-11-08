@@ -25,7 +25,7 @@ function cadastrarLivro(event) {
 function pesquisarLivro() {
     const searchId = document.getElementById('searchId').value;
 
-    fetch(`http://localhost:8080/jogos/${searchId}`)
+    fetch(`http://localhost:8080/livros/${searchId}`)
         .then(response => {
             if (response.status === 404) {
                 return Promise.reject('Livro não encontrado');
