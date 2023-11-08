@@ -15,14 +15,14 @@ function cadastrarLivro(event) {
     })
         .then(response => response.json())
         .then(data => {
-            alert('Jogo cadastrado com sucesso!');
+            alert('Livro cadastrado com sucesso!');
             document.getElementById('cadastroForm').reset();            
         })
         .catch(error => {
             console.error('Erro ao cadastrar livro:', error);
         });
 }
-function pesquisarJogo() {
+function pesquisarLivro() {
     const searchId = document.getElementById('searchId').value;
 
     fetch(`http://localhost:8080/jogos/${searchId}`)
