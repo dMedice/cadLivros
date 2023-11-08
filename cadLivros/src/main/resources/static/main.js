@@ -80,7 +80,7 @@ function excluirLivro() {
         const plataform = document.getElementById('plataform').value;
         const searchId = document.getElementById('searchId').value;
 
-        fetch(`http://localhost:8080/jogos/${searchId}`, {
+        fetch(`http://localhost:8080/livros/${searchId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
